@@ -14,11 +14,11 @@ angular.module('starter.controllers', [])
         
         var days = 0;
         switch ($scope.calculator.option_selected) {
-            case "working_days":
-                days = 7 / 5 * $scope.calculator.numeric_input;
-                break;
             case "natural_days":
                 days = $scope.calculator.numeric_input;
+                break;
+            case "working_days":
+                days = 7 / 5 * $scope.calculator.numeric_input;
                 break;
             case 'weeks':
                 days = 7 * $scope.calculator.numeric_input;
