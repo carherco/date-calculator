@@ -2,22 +2,22 @@
     <ion-content>
         <div class="list">
             <div class="item item-text-wrap">Introduce la fecha de inicio del proyecto y la 
-                duración para calcuar la fecha de entrega.
+                duración del mismo para obtener la fecha de entrega.
             </div>
             <label class="item item-input">
                 <span class="input-label">Feccha inicial</span>
-                <input type="date" ng-model="init_date" placeholder="Fecha de inicio del proyecto">
+                <input type="date" ng-model="calculator.init_date">
             </label>
             <div class="item item-input-inset">
                 <label class="item-input">
                     <span class="input-label">Tiempo</span>
-                    <input type="number" ng-model="days">
+                    <input type="number" ng-model="calculator.numeric_input">
                 </label>
-                <select>
-                    <option>Días laborables</option>
-                    <option>Días naturales</option>
-                    <option selected>Semanas</option>
-                    <option>Meses</option>
+                <select ng-model="calculator.option_selected">
+                    <option value="working_days">Días laborables</option>
+                    <option value="natural_days">Días naturales</option>
+                    <option value="weeks">Semanas</option>
+                    <option value="months">Meses</option>
                 </select>
             </div>
             
@@ -30,7 +30,7 @@
                     Fecha de entrega:
                 </div>
                 <div class="item">
-                    {{end_date|date:'dd-MMMM-yyyy'}}
+                    {{calculator.end_date|date:'dd-MMMM-yyyy'}}
                 </div>
             </div>
             

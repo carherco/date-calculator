@@ -1,14 +1,34 @@
 angular.module('starter.controllers', [])
 
 .controller('FechasCtrl', function($scope) {
-    $scope.init_date = new Date();
-    $scope.end_date = new Date();
-    $scope.days = 30;
     
-    $scope.end_date.setDate($scope.init_date.getDate()+$scope.days);
+    $scope.calculator = {
+        init_date: new Date(),
+        end_date: new Date(),
+        numeric_input: 0,
+        option_selected: 'weeks'
+    };
     
     $scope.calcular = function(){
-        $scope.end_date.setDate($scope.init_date.getDate()+$scope.days);
+        $scope.calculator.end_date = new Date();
+        
+        var days = 0;
+        switch ($scope.calculator.option_selected) {
+            case "working_days":
+                days = 7 / 5 * $scope.calculator.numeric_input;
+                break;
+            case "natural_days":
+                days = $scope.calculator.numeric_input;
+                break;
+            case 'weeks':
+                days = 7 * $scope.calculator.numeric_input;
+                break;
+            case 'months':
+                days = 30 * $scope.calculator.numeric_input;
+                break;
+        }
+        
+        $scope.calculator.end_date.setDate($scope.calculator.init_date.getDate()+days);
     };
 
     
