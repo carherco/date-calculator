@@ -1,20 +1,39 @@
-<ion-view view-title="Dashboard">
-    <ion-content class="padding">
+<ion-view view-title="Calculadora de fechas">
+    <ion-content>
         <div class="list">
+            <div class="item item-text-wrap">Introduce la fecha de inicio del proyecto y la 
+                duración para calcuar la fecha de entrega.
+            </div>
             <label class="item item-input">
+                <span class="input-label">Feccha inicial</span>
                 <input type="date" ng-model="init_date" placeholder="Fecha de inicio del proyecto">
             </label>
             <div class="item item-input-inset">
-                <label class="item-input-wrapper">
-                    <input type="number" ng-model="days" placeholder="Nº de días">
+                <label class="item-input">
+                    <span class="input-label">Tiempo</span>
+                    <input type="number" ng-model="days">
                 </label>
-                <button class="button button-small" ng-click="calcular()">
-                    Calcular
-                </button>
+                <select>
+                    <option>Días laborables</option>
+                    <option>Días naturales</option>
+                    <option selected>Semanas</option>
+                    <option>Meses</option>
+                </select>
             </div>
-            <label class="item item-input">
-                Fecha de entrega: {{end_date|date:'dd-MMMM-yyyy'}}
-            </label>
+            
+            <button class="button button-block button-positive" ng-click="calcular()">
+                Calcular
+            </button>
+            
+            <div class="card">
+                <div class="item item-divider">
+                    Fecha de entrega:
+                </div>
+                <div class="item">
+                    {{end_date|date:'dd-MMMM-yyyy'}}
+                </div>
+            </div>
+            
         </div>
     </ion-content>
 </ion-view>
