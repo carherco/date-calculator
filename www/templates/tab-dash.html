@@ -1,0 +1,20 @@
+<ion-view view-title="Dashboard">
+    <ion-content class="padding">
+        <div class="list">
+            <label class="item item-input">
+                <input type="date" ng-model="init_date" placeholder="Fecha de inicio del proyecto">
+            </label>
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input type="number" ng-model="days" placeholder="Nº de días">
+                </label>
+                <button class="button button-small" ng-click="calcular()">
+                    Calcular
+                </button>
+            </div>
+            <label class="item item-input">
+                Fecha de entrega: {{end_date|date:'dd-MMMM-yyyy'}}
+            </label>
+        </div>
+    </ion-content>
+</ion-view>
