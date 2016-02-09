@@ -13,22 +13,26 @@ angular.module('starter.controllers', [])
         $scope.calculator.end_date = new Date($scope.calculator.init_date.getTime());;
         
         var days = 0;
+        var months = 0;
         switch ($scope.calculator.option_selected) {
             case "natural_days":
                 days = $scope.calculator.numeric_input;
+                $scope.calculator.end_date.setDate($scope.calculator.end_date.getDate()+days);
                 break;
             case "working_days":
                 days = 7 / 5 * $scope.calculator.numeric_input;
+                $scope.calculator.end_date.setDate($scope.calculator.end_date.getDate()+days);
                 break;
             case 'weeks':
                 days = 7 * $scope.calculator.numeric_input;
+                $scope.calculator.end_date.setDate($scope.calculator.end_date.getDate()+days);
                 break;
             case 'months':
-                days = 30 * $scope.calculator.numeric_input;
+                months = $scope.calculator.numeric_input;
+                $scope.calculator.end_date.setMonth($scope.calculator.end_date.getMonth()+months);
                 break;
         }
         
-        $scope.calculator.end_date.setDate($scope.calculator.end_date.getDate()+days);
     };
 
     
