@@ -5,12 +5,12 @@ angular.module('starter.controllers', [])
     $scope.calculator = {
         init_date: new Date(),
         end_date: new Date(),
-        numeric_input: 0,
+        numeric_input: null,
         option_selected: 'weeks'
     };
     
     $scope.calcular = function(){
-        $scope.calculator.end_date = new Date();
+        $scope.calculator.end_date = new Date($scope.calculator.init_date.getTime());;
         
         var days = 0;
         switch ($scope.calculator.option_selected) {
@@ -28,7 +28,7 @@ angular.module('starter.controllers', [])
                 break;
         }
         
-        $scope.calculator.end_date.setDate($scope.calculator.init_date.getDate()+days);
+        $scope.calculator.end_date.setDate($scope.calculator.end_date.getDate()+days);
     };
 
     
