@@ -5,8 +5,8 @@
                 duración del mismo para obtener la fecha de entrega.
             </div>
             <label class="item item-input">
-                <span class="input-label">Feccha inicial</span>
-                <input type="date" ng-model="calculator.init_date">
+                <span class="input-label">Feccha de entrega</span>
+                <input type="date" ng-model="calculator.end_date">
             </label>
             <div class="item item-input-inset">
                 <label class="item-input">
@@ -21,7 +21,7 @@
                 </select>
             </div>
             
-            <button class="button button-block button-positive" ng-click="calcular()">
+            <button class="button button-block button-positive" ng-click="calcularInicio()">
                 Calcular
             </button>
             
@@ -30,7 +30,7 @@
                     Fecha de entrega:
                 </div>
                 <div class="item">
-                    {{calculator.end_date|date:'dd-MMMM-yyyy (EEEE)'}}
+                    {{calculator.init_date|date:'dd-MMMM-yyyy (EEEE)'}}
                 </div>
             </div>
             
