@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+
+#amount, input {
+    border: 1px #387ef5 solid;
+}
+
+.radio-content, .radio-icon {
+    font-size: x-small;
+}
+
+.item-radio {
+    width: 50%;
+}

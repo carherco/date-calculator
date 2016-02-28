@@ -5,20 +5,20 @@
                 duración del mismo para obtener la fecha de entrega.
             </div>
             <label class="item item-input">
-                <span class="input-label">Feccha inicial</span>
+                <span class="input-label">Fecha inicial</span>
                 <input type="date" ng-model="calculator.init_date">
             </label>
-            <div class="item item-input-inset">
-                <label class="item-input">
-                    <span class="input-label">Tiempo</span>
-                    <input type="number" ng-model="calculator.numeric_input">
-                </label>
-                <select ng-model="calculator.option_selected">
-                    <option value="natural_days">Días naturales</option>
-                    <option value="working_days">Días laborables</option>             
-                    <option value="weeks">Semanas</option>
-                    <option value="months">Meses</option>
-                </select>
+            <label class="item item-input">
+                <span class="input-label">Tiempo</span>
+                <input id="amount" type="number" ng-model="calculator.numeric_input">
+            </label>
+            <div class="item item-input fontsm">
+                <ion-radio class="col col-50" ng-model="calculator.option_selected" ng-value="'natural_days'">Días naturales</ion-radio>
+                <ion-radio class="col col-50" ng-model="calculator.option_selected" ng-value="'working_days'">Días laborables</ion-radio>
+            </div>
+            <div class="item item-input fontsm">
+                <ion-radio class="col col-50" ng-model="calculator.option_selected" ng-value="'weeks'">Semanas</ion-radio>
+                <ion-radio class="col col-50" ng-model="calculator.option_selected" ng-value="'months'">Meses</ion-radio>
             </div>
             
             <button class="button button-block button-positive" ng-click="calcularFin()">
