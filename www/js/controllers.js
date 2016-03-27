@@ -9,6 +9,8 @@ angular.module('starter.controllers', [])
         option_selected: 'weeks'
     };
     
+    $scope.calculator.weeknumber = weeknumber($scope.calculator.end_date); 
+    
     $scope.calcularFin = function(){
         $scope.calculator.end_date = new Date($scope.calculator.init_date.getTime());;
         
@@ -32,7 +34,7 @@ angular.module('starter.controllers', [])
                 $scope.calculator.end_date.setMonth($scope.calculator.end_date.getMonth()+months);
                 break;
         }
-        
+        $scope.calculator.weeknumber = weeknumber($scope.calculator.end_date); 
     };
     
     $scope.calcularInicio = function(){
@@ -63,9 +65,15 @@ angular.module('starter.controllers', [])
 
     
 })
+;
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
+function weeknumber(date, prevyear) {
+    var datetemp = date;
+    var year = datetemp.getFullYear() - (prevyear ? 1 : 0);
+    var newyearday = new Date(year,0,1);
+    var days = Math.floor((datetemp.getTime() - newyearday.getTime()) / (24 * 60 * 60 * 1000));
+    var offset = [6,7,8,9,10,4,5][newyearday.getDay()];
+    var number = Math.floor((days + offset) / 7);
+    if (number === 0) number = weeknumber(date, true); 
+    return number;
+};

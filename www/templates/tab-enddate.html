@@ -5,11 +5,11 @@
                 duración del mismo para obtener la fecha de entrega.
             </div>
             <label class="item item-input">
-                <span class="input-label">Fecha inicial</span>
+                <span class="input-label">Fecha inicial:</span>
                 <input type="date" ng-model="calculator.init_date">
             </label>
             <label class="item item-input">
-                <span class="input-label">Tiempo</span>
+                <span class="input-label">Tiempo:</span>
                 <input id="amount" type="number" ng-model="calculator.numeric_input">
             </label>
             <div class="item item-input fontsm">
@@ -30,7 +30,7 @@
                     Fecha de entrega:
                 </div>
                 <div class="item">
-                    {{calculator.end_date|date:'dd-MMMM-yyyy (EEEE)'}}
+                    {{calculator.end_date|date:'dd-MMMM-yyyy'}} (semana {{calculator.weeknumber}}, {{calculator.end_date|date:'EEEE'}})
                 </div>
             </div>
             
